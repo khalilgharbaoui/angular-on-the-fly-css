@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+
+<head>
+    <title>On the fly CSS with AngularJS!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <style>
+        html,
+        body,
+        input,
+        select,
+        textarea {
+            font-size: 1.05em;
+        }
+        .navbar{
+            border-radius: 0px;
+
+        }
+
+
+
+        @-webkit-keyframes rotating
+        /* Safari and Chrome */
+
+        {
+            from {
+                -ms-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            to {
+                -ms-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotating {
+            from {
+                -ms-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            to {
+                -ms-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        .rotating {
+            -webkit-animation: rotating 2s linear infinite;
+            -moz-animation: rotating 2s linear infinite;
+            -ms-animation: rotating 2s linear infinite;
+            -o-animation: rotating 2s linear infinite;
+            animation: rotating 2s linear infinite;
+
+            border: dashed 6px gray;
+            text-align: center;
+            width: 200px;
+            height: 200px;
+            max-width: 200px;
+            max-height: 200px;
+            margin:0 auto;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .footer{
+            height: 33px;
+            bottom: 0px;
+            position: fixed;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .footer a:hover{
+            text-decoration: none;
+        }
+        .jumbotron{
+            border-radius: 0px !important;
+        }
+        .github{
+            text-align: center;
+            vertical-align: middle;
+            margin: 33px auto;
+            width: 100%;
+            height: 33px;
+        }
+
+
+    </style>
+
+    <!-- load angular via CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">On the fly CSS with AngularJS!</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container" ng-controller="mainController">
+
+        <div class="row">
+
+            <div class="jumbotron col-md-6">
+                <h3>Input your CSS style here to manipulate the rotating element on the fly!</h3> ​
+                <textarea placeholder="example:
+                background-color: limegreen;
+                border-radius:200px;" ng-model="handle" rows="8" style="max-width: 100%;width: 100%;"></textarea>
+            </div>
+            <div class="col-md-6" style="padding: 10% 15%;">
+                <div class="rotating center-block" style="{{lowercasehandle()}}">
+                    element
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="github">
+        <a href="https://github.com/angular-on-the-fly-css">GitHub Project </a>
+    </div>
+
+    <div class="footer">
+        Made with ♥︎ by <a href="http://khalilgharbaoui.codez.it">K.G.</a>
+    </div>
+
+</body>
+
+</html>
